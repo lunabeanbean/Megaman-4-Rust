@@ -1,0 +1,11 @@
+# stage 2 start, then charge shots: full charge (150 frames), release, medium (50), (70), tap
+800 806 S
+1300 1306 S
+1450 1455 D
+1520 1526 S
+2950 3100 B
+3150 3200 B
+3250 3320 B
+3380 3390 B
+3450 3470 R
+3500 3560 B

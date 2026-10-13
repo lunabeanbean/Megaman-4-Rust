@@ -1,0 +1,10 @@
+# stage 2: poke checkpoint 1 + death at 3050 -> restart in the vertical section (page 0B) of checkpoint 1; walk to the ladder at the left, climb down, come back up
+800 806 S
+1300 1306 S
+1450 1455 D
+1520 1526 S
+2900 3060 R
+3330 3410 L
+3410 3565 D
+3580 3800 U
+3900 4000 R

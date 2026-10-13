@@ -1,0 +1,7 @@
+# stage 2, forced game over, confirm menu, CONTINUE
+800 806 S
+1300 1306 S
+1450 1455 D
+1520 1526 S
+3400 3405 D
+3450 3456 S

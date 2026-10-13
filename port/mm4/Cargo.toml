@@ -1,0 +1,10 @@
+[package]
+name = "mm4"
+version = "0.1.0"
+edition = "2021"
+description = "Mega Man 4 port window/launcher (work in progress): thin shell around mm4-core"
+
+[dependencies]
+minifb = "0.27"
+cpal = "0.18"
+mm4-core = { path = "../mm4-core" }

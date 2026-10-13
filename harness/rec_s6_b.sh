@@ -1,0 +1,20 @@
+#!/bin/sh
+# Stage 6 recordings, part B (session 18): the sections of the original ROM from teleports. Run from harness/.
+# $2B = flags|section (after the entry scroll of a flag-$20 section the direction bits are gone), $2D = last screen index of the section.
+export MM4_ANYY=1
+G="sh game_test.sh mm4_orig.nes"
+# mini boss of section 1 (page 7) from the end of section 0, hurt on
+STAGE=6 KEEP=1 NOINV=1 TPSECT=0,0,0,6 TPCUR=e TELEPORT=6,128,100 TPWAIT=8 B=0.4 RIGHT=0.8 JOBS=3 $G 3000 11401 11402 11403
+# mini boss of section 7 (page 17)
+STAGE=6 KEEP=1 TPSECT=7,17,39,0 TPCUR=29 TELEPORT=17,128,100 TPWAIT=8 B=0.4 RIGHT=0.5 JOBS=3 $G 3000 11411 11412 11413
+STAGE=6 KEEP=1 NOINV=1 TPSECT=7,17,39,0 TPCUR=29 TELEPORT=17,128,100 TPWAIT=8 B=0.4 RIGHT=0.5 JOBS=3 $G 3000 11421 11422 11423
+# section 2 (pages 8-9)
+STAGE=6 KEEP=1 TPSECT=2,8,34,1 TPCUR=15 TELEPORT=8,128,100 TPWAIT=8 B=0.3 RIGHT=0.6 JOBS=3 $G 2500 11431 11432 11433
+# section 3 (page 10, climb), section 4 (pages 11-12, climb)
+STAGE=6 KEEP=1 TPSECT=3,10,131,0 TPCUR=1b TELEPORT=10,128,200 TPWAIT=8 B=0.3 UP=0.6 JOBS=3 $G 2500 11441 11442 11443
+STAGE=6 KEEP=1 TPSECT=4,11,164,1 TPCUR=1c TELEPORT=11,128,200 TPWAIT=8 B=0.3 UP=0.6 JOBS=3 $G 2500 11451 11452 11453
+# section 6 (pages 14-16) after the entry scroll, hurt on
+STAGE=6 KEEP=1 NOINV=1 TPSECT=6,14,38,2 TPCUR=1d TELEPORT=14,128,100 TPWAIT=8 B=0.3 RIGHT=0.6 JOBS=3 $G 3000 11461 11462 11463
+# section 9 (pages 21-22), section 10 (page 23)
+STAGE=6 KEEP=1 TPSECT=9,21,41,1 TPCUR=3c TELEPORT=21,128,100 TPWAIT=8 B=0.3 RIGHT=0.6 JOBS=3 $G 3000 11471 11472 11473
+STAGE=6 KEEP=1 TPSECT=10,23,58,0 TPCUR=46 TELEPORT=23,128,100 TPWAIT=8 B=0.3 RIGHT=0.6 JOBS=3 $G 2000 11481 11482 11483

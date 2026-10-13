@@ -1,0 +1,8 @@
+# stage 2, stage clear forced, password screen: STAGE SELECT, select stage 6 (up), play
+800 806 S
+1300 1306 S
+1450 1455 D
+1520 1526 S
+3800 3806 S
+4300 4305 U
+4400 4406 S

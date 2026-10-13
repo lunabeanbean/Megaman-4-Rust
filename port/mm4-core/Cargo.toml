@@ -1,0 +1,7 @@
+[package]
+name = "mm4-core"
+version = "0.1.0"
+edition = "2021"
+description = "Mega Man 4 game rules rewritten in Rust (no window, no audio): reads the owner's ROM at runtime, never ships ROM data"
+
+[dependencies]

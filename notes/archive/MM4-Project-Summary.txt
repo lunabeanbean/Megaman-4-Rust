@@ -1,0 +1,41 @@
+MEGA MAN 4 RUST REWRITE - PROJECT SUMMARY
+Prepared for Luna, 2026-10-08
+
+1. SCOPE
+Turn the Mega Man 4 (NES) game into code Luna fully owns and can change freely, by rewriting its logic in Rust. The rewrite is verified frame by frame against the real game running in the Mesen emulator.
+
+Pipeline:
+  - Disassembly (github refreshing-lemonade/megaman4-disassembly, cloned locally; builds a ROM byte-identical to Luna's own copy)
+  - Notes and tools (notes/ folder: RAM map, game loop, objects, sprites, camera, collision, level format; tools/ for exporting and re-importing stage data)
+  - Headless Mesen + Lua test harness (record the real game with random inputs, replay the same inputs in Rust, compare player, objects, random state and the visible sprite list every frame)
+  - Rust port (port/mm4-core simulation, kept separate from rendering; port/play.bat opens a playable window with the real sprites)
+
+Rules: nothing is tuned by eye; every mechanic is checked against Mesen traces; guesses are marked as guesses. The ROM and ripped assets stay private (the Rust program reads Luna's own ROM at run time); the disassembly repo is never pushed upstream.
+
+Current state (session 16):
+  - Done and frame-exact: player (ground, air, slide, ladder, spawn, hurt, death, respawn, shooting incl. charge), camera and sections, the whole object system (spawner, AI loop, shots, damage, explosions, items), sprite/OAM generation, boss fights, defeat, victory walk and stage-end.
+  - Stages fully ported: 0, 1, 2, 3, 5 and 7 (all enemies, items and bosses).
+  - Regression suite: 513 recordings OK / 0 bad.
+  - Remaining: stage 4 (13 enemy types plus boss, next up), stage 6 (13 types plus boss), stage-select and weapon-get screens, game over/continue, special weapons, HUD/title, palette fades, audio.
+
+2. INSPIRATION
+The YouTube video "You will own EVERYTHING and you will be happy..." by chasm (Oct 2026) and the AI-assisted Rust game rewrites it shows:
+  - Elden Ring player controller rewritten in Rust and dropped into Skyrim
+  - nv-rs, a Fallout: New Vegas engine rewrite in Rust/Bevy (rules read from the game's code, recordings used as an oracle)
+  - IW4L (Modern Warfare 2 rewrite), plus Skate 3, Minecraft, Tarkov, Mirror's Edge and GTA 4 pieces in chasm's mashup
+Luna does not care about "pass-through" mods (two games running side by side exchanging state). She wants true rewrites, where once the game is in Rust "you can do anything" with it. Her open question was how those projects do it so efficiently.
+
+Method distilled from them and used here: read behaviour from the original's code and data, keep a pure simulation layer separate from rendering, test against recordings of the original, flag unknowns as estimates, keep handoff notes (STATUS.md), and run many small rounds inside a human-led loop with a build-and-score check.
+
+3. GOALS
+  1. Finish a complete, standalone, frame-exact Rust version of Mega Man 4's gameplay: all 8 stages, enemies, bosses, items, weapons.
+  2. Finish the surrounding game: stage select, weapon-get screens, game over/continue, HUD/title, palette fades, audio.
+  3. Asset pipeline: tiles, palettes and level data as plain files instead of hard-coded data.
+  4. Keep it editable: a level editor (stage export/import to JSON already works and round-trips all 15 stages), plus easy changes to physics, health, enemies, etc.
+  5. Keep the work trustworthy: every mechanic verified against the real game, steady visible progress, Luna never the bottleneck.
+
+4. AFTER THE GOALS
+  - Use the finished rewrite as a base to freely change or extend the game: new levels, new enemies, new mechanics, rebalancing, a randomizer or remix.
+  - Reuse its mechanics in other projects (Luna's wish, in the spirit of chasm's mashups: lift the movement, shooting or combat feel from one game and put it into another).
+  - Possible later extras: a nicer window (higher resolution, widescreen, better controls), and a playable build Luna can run by double-clicking.
+  - Constraint throughout: the ROM and ripped assets are never published; only code and notes may be shared, if ever.

@@ -1,0 +1,37 @@
+# Never commit the owner's ROM or anything ripped from it (graphics, dumps, recordings)
+*.nes
+*.bin
+*.png
+*.ppm
+sprites_megaman/
+# the disassembly is its own repository (upstream clone with a local baseline commit); not nested here
+megaman4-disassembly/
+# Rust build output
+**/target/
+**/target_dev/
+# bulk recordings and generated scripts of the harness (derived from the ROM; record them again with the scripts)
+harness/*.txt
+!harness/verified_routines.txt
+harness/*.json
+harness/ptrace_*.lua
+harness/pausetrace_*.lua
+harness/stages/
+rec_*_out.txt
+regress_out.txt
+*.log
+scratch/
+harness/*.state
+harness/*.meta
+harness/chain/
+!harness/chain_*.txt
+harness/regress_run.sh
+
+# private visionary ramblings, local only, never released
+ramblings/
+
+# ROM-derived dumps and audio, never released
+harness/rsD/
+harness/*.wav
+
+# build output for the downloadable zip (attach to a Release instead)
+release/

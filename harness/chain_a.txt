@@ -1,0 +1,10 @@
+# skip the story, PRESS START, cursor down = stage 2, then play: run right, jump now and then, shoot
+800 806 S
+1300 1306 S
+1450 1455 D
+1520 1526 S
+2900 3300 R
+2950 2990 A
+3050 3070 B
+3100 3140 A
+3200 3230 A

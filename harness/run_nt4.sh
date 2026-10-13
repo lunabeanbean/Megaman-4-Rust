@@ -1,0 +1,9 @@
+export MM4_ANYY=1
+rec() { seed=$1; stage=$2; rom=$3; frames=$4; shift 4; env STAGE=$stage KEEP=1 NTEVERY=4 NTDUMP=30 JOBS=1 "$@" sh game_test.sh $rom $frames $seed > /tmp/nt_$seed.rec 2>&1; }
+rec 22301 8 mm4_orig.nes 2500 TPSECT=2,7,162,5 TPCUR=11 TELEPORT=11,128,200 TPWAIT=8 B=0.3 UP=0.6
+rec 22302 8 mm4_orig.nes 2500 TPSECT=3,13,131,1 TPCUR=16 TELEPORT=13,128,200 TPWAIT=8 B=0.3 UP=0.6
+rec 22303 8 mm4_orig.nes 2500 TPSECT=4,15,132,0 TPCUR=19 TELEPORT=15,40,60 TPWAIT=8 B=0.3 UP=0.6 RIGHT=0.5
+rec 22304 8 mm4_orig.nes 2500 TPSECT=5,16,165,0 TPCUR=1d TELEPORT=16,128,200 TPWAIT=8 B=0.3 UP=0.6
+rec 22305 8 mm4_orig.nes 2500 TPSECT=6,17,54,0 TPCUR=20 TELEPORT=17,128,100 TPWAIT=8 B=0.3 RIGHT=0.6
+rec 22306 8 mm4_orig.nes 6000 TPSECT=7,18,55,0 TPCUR=20 TELEPORT=18,40,100 TPWAIT=8 RIGHT=0.5 B=0.5
+echo done > /tmp/nt_all4.done
